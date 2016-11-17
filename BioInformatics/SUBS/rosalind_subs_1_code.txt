@@ -1,0 +1,20 @@
+a=raw_input()
+b=raw_input()
+
+l=[]
+i=0
+
+while i<len(a):
+    if(a[i:].startswith(b)):
+        l.append(i+1)
+    i=i+1
+
+i=0
+st=""
+while i<len(l)-1:
+    st=st+str(l[i])+" "
+    i=i+1
+    
+if len(l):
+    st=st+str(l[len(l)-1])
+print st

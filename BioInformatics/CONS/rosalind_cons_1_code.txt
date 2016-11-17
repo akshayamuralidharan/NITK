@@ -1,0 +1,61 @@
+f=open("rosalind_cons_1_dataset.txt","r+")
+
+l=f.read().split('\n')
+
+i=-1
+lst=[]
+
+for j in range(len(l)):
+    if l[j]=="":
+        del l[j]
+print l
+
+for ele in l:
+    if ele[0]=='>':
+        i=i+1
+        lst.append("")
+    else:
+        lst[-1]=lst[-1]+ele;
+
+mt=zip(*lst)
+
+ans=""
+
+for j in range(len(mt)):
+    ans=ans+max(set(mt[j]), key=mt[j].count)
+print ans
+
+pm=[[],[],[],[]]
+
+for j in range(len(lst[0])):
+    pm[0].append(0)
+    pm[1].append(0)
+    pm[2].append(0)
+    pm[3].append(0)
+
+for j in range(len(lst[0])):
+    for i in range(len(lst)):
+        if(lst[i][j]=='A'):
+            pm[0][j]=pm[0][j]+1
+        elif(lst[i][j]=='C'):
+            pm[1][j]=pm[1][j]+1
+        elif(lst[i][j]=='G'):
+            pm[2][j]=pm[2][j]+1
+        elif(lst[i][j]=='T'):
+            pm[3][j]=pm[3][j]+1
+
+print 'A:',
+for i in range(len(pm[0])):
+    print pm[0][i],
+print
+print 'C:',
+for i in range(len(pm[0])):
+    print pm[1][i],
+print
+print 'G:',
+for i in range(len(pm[0])):
+    print pm[2][i],
+print
+print 'T:',
+for i in range(len(pm[0])):
+    print pm[3][i],

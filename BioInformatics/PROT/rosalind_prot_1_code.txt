@@ -1,0 +1,26 @@
+f=open("rosalind_prot_1_dataset.txt","r+")
+
+l=f.read().split('\n')
+
+d={}
+
+for line in l:
+    line=line.split()
+    
+    if line:
+        d[line[0]]=line[1]
+        d[line[2]]=line[3]
+        d[line[4]]=line[5]
+        d[line[6]]=line[7]
+    
+
+a=raw_input()
+i=0
+ans=""
+while i < len(a):
+    str=a[i:i+3]
+    if d[str]!="Stop":
+        ans=ans+d[str]
+    i=i+3        
+
+print ans

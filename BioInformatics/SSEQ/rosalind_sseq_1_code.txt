@@ -1,0 +1,38 @@
+f=open("rosalind_sseq_1_dataset","r+")
+
+l=f.read().split('\n')
+i=1
+k=0
+s1=""
+
+while l[i][0]!='>':
+	s1=s1+l[i]
+	i=i+1
+
+s2=""
+
+i=i+1
+
+while i<len(l):
+	s2=s2+l[i]
+	i=i+1
+
+np=1
+sub=""
+fnd=0
+
+for i in range(len(s2)):
+	nfnd=s1[fnd:].find(s2[i])
+	
+	
+	if(np and nfnd==-1):
+		np=0
+	else:
+		fnd=fnd+nfnd+1	
+		
+		sub=sub+str(fnd)+" "
+		
+
+
+if np:
+	print sub

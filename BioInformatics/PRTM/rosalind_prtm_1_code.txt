@@ -1,0 +1,19 @@
+f=open("wt.txt","r+")
+
+l=f.read()
+
+l=map(lambda x: x.split(),l.split())
+
+i=0
+d={}
+while i<len(l):
+    d[l[i][0]]=l[i+1][0]
+    i=i+2
+
+
+a=raw_input()
+sum=0
+for i in range(len(a)):
+    sum=sum+float(d[a[i]])
+
+print sum

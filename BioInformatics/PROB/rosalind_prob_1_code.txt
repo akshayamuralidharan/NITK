@@ -1,0 +1,17 @@
+import math
+a=raw_input()
+b=map(lambda x:float(x),raw_input().split())
+
+B=""
+
+for i in range(len(b)):
+    pr=1
+    for j in range(len(a)):
+        if a[j]=='G' or a[j]=='C':
+            pr=pr*b[i]/2
+        else:
+            pr=pr*(1-b[i])/2
+
+    B=B+str(math.log(pr,10))+" "
+
+print B

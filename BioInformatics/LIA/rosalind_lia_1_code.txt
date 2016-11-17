@@ -1,0 +1,17 @@
+a=map(lambda x:int(x),raw_input().split())
+
+i=0
+
+twok=pow(2,a[0])
+
+term=pow(0.75,twok)
+sum=0
+while i<a[1]:
+    sum=sum+term
+    term=term/0.75
+    term=term*0.25
+    term=term*(twok-i)
+    term=term/(i+1)
+    i=i+1
+
+print 1-sum

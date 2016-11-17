@@ -1,0 +1,26 @@
+#Enumerating k-mers Lexicographically
+
+from itertools import product
+
+def perm(s,n):
+    return (list(product(s, repeat=n)))
+
+
+
+f=open('rosalind_lexf_1_dataset.txt','r')
+dataset=(f.readline()).split()      #contains dataset
+n=f.readline()      #containes number
+f.close()
+print dataset
+lst = perm(dataset,int(n))      #returns all possible combination
+#print lst
+o=open('rosalind_lexf_1_output.txt','w')
+for item in lst:
+    x = str(item).replace('(','')
+    x = x.replace(',', '')
+    x = x.replace(' ','')
+    x = x.replace("'",'')
+    print(x.replace(')', ''))
+
+o.write(x)
+o.close()

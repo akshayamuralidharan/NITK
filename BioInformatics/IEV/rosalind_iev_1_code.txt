@@ -1,0 +1,6 @@
+a=map(lambda x:int(x),raw_input().split(' '))
+
+
+pr=2*a[0]+2*a[1]+2*a[2]+1.5*a[3]+a[4]+0
+
+print pr

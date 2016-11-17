@@ -1,0 +1,52 @@
+f=open("rosalind_lcsm_1_dataset.txt","r+")
+
+l=f.read().split('\n')
+
+
+s=[]
+
+i=-1
+
+for k in range(len(l)):
+    if l[k]=="":
+        del l[k]
+        
+
+
+
+for ele in l:
+    if ele[0]=='>':
+        print ele[0]
+        i=i+1
+        s.append("")
+    else:
+        s[i]=s[i]+ele
+
+
+sub=[]
+
+for i in range(len(s[0])):
+    for j in range(i+1,len(s[0])):
+        if s[0][i:j] in s[1]:
+            sub.append(s[0][i:j])
+#print sub
+ln=len(sub)
+#print ln
+j=0
+
+for i in range(2,len(s)):
+    while j<ln:
+        #print sub,s
+#        print i,j
+        if sub[j] not in s[i]:
+            ln=ln-1
+            
+            del sub[j]
+            j=j-1
+        j=j+1
+
+
+sub.sort(key = lambda s: len(s))
+print sub[-1]
+                   
+print sub

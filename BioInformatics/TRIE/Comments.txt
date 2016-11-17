@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Complexity       ->   O(n*l)              ;n-> no. of words    l->length of longest word

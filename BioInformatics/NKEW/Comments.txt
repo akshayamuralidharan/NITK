@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Complexity: O(n*(l+b))		;n-> number of entries, l->length of string, b->number of branches

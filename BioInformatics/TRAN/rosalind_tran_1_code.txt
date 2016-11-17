@@ -1,0 +1,36 @@
+f=open("rosalind_tran_1_dataset.txt","r+")
+
+l=f.read().split('\n')
+i=1
+k=0
+s1=""
+
+while l[i][0]!='>':
+	s1=s1+l[i]
+	i=i+1
+
+s2=""
+
+i=i+1
+
+while i<len(l):
+	s2=s2+l[i]
+	i=i+1
+
+tv=0
+ts=0
+
+l1=['A','G']
+l2=['C','T']
+
+for i in range(len(s1)):
+	if s1[i]!=s2[i]:
+		if (s1[i] in l1 and s2[i] in l1) or (s1[i] in l2 and s2[i] in l2):
+			ts=ts+1
+			#print s1[i],s2[i],"Transition", ts
+		else:
+			tv=tv+1
+			#print s1[i],s2[i],"Transversion", tv
+
+
+print float(ts)/tv

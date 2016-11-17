@@ -1,0 +1,6 @@
+f=open("rosalind_tree_1_dataset.txt","r+")
+
+l=f.read().split()
+n=(len(l)-1)/2
+
+print int(l[0])-n-1

@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Time Complexity: O(d1*d2+n)  ; d1, d2 ,n are the depths of the node, number of nodes

@@ -1,0 +1,13 @@
+import math
+
+f=open("rosalind_pmch_1_dataset.txt","r+")
+
+s=f.read().split('\n')
+l=""
+for i in range(1,len(s)):
+      l=l+s[i]
+
+k=l.count('G')
+m=l.count('A')
+
+print math.factorial(k)*math.factorial(m)

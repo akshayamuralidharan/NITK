@@ -1,0 +1,73 @@
+f=open("rosalind_orf_1_dataset.txt","r")
+l=f.read().split('\n')
+st=""
+for i in range(1,len(l)):
+    st=st+l[i]
+
+b=st
+
+c=""
+print b
+for i in range(len(b)):
+    if b[i]=='A':
+        c=c+'T'
+    elif b[i]=='C':
+        c=c+'G'
+    elif b[i]=='G':
+        c=c+'C'
+    elif b[i]=='T':
+        c=c+'A'
+
+c=c[::-1]
+#b=c
+ans=[]
+i=0
+
+d={}
+f=open("dcodon.txt","r")
+
+l=map(lambda x: x.split(),f.read().split())
+
+while i<len(l):
+    d[l[i][0]]=l[i+1][0]
+    i=i+2
+for key in d:
+    if not key:
+        del d[key]
+
+#print strt
+i=0
+j=0
+a=b
+b=c
+#print d
+
+for i in range(len(b)):
+    if b[i:i+3]=="ATG":
+        wrd=""
+        ele=b[i:i+3]
+        while ele in d and d[ele]!='Stop':
+            wrd=wrd+d[ele]
+            i=i+3
+            ele=b[i:i+3]
+        if ele in d and d[ele]=='Stop':
+            if wrd not in ans:
+                ans.append(wrd)
+            
+b=a
+
+for i in range(len(b)):
+    if b[i:i+3]=="ATG":
+        wrd=""
+        ele=b[i:i+3]
+        while ele in d and d[ele]!='Stop':
+            wrd=wrd+d[ele]
+            i=i+3
+            ele=b[i:i+3]
+        if ele in d and d[ele]=='Stop':
+            if wrd not in ans:
+                ans.append(wrd)
+    
+    
+for ele in ans:
+    print ele

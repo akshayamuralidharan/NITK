@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Time Complexity: O( l * l * n )	; l & n -> length of longest pair, number of ips.

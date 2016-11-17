@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Time Complexity: O(k + 256*l)	= O(l)	; k, -> constant time required to generate lexicographic list, l -> length of DNA string.

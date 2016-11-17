@@ -1,0 +1,28 @@
+f=open("rosalind_revp_1_dataset.txt","r")
+
+l=f.read().split('\n')
+s=""
+
+for i in range(1,len(l)):
+    s=s+l[i]
+
+for i in range(len(s)):
+    for j in range(4,13):
+        if i+j<=len(s):
+            wrd=s[i:i+j]
+            revc=""
+
+            for k in range(len(wrd)):
+                if wrd[k]=='A':
+                    revc=revc+'T'
+                elif wrd[k]=='C':
+                    revc=revc+'G'
+                elif wrd[k]=='G':
+                    revc=revc+'C'
+                if wrd[k]=='T':
+                    revc=revc+'A'
+
+            revc=revc[::-1]
+            #print wrd,revc
+            if revc==wrd:
+                print i+1,j

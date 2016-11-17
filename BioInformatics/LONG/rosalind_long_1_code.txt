@@ -1,0 +1,46 @@
+def superstring(array, acc=''):
+    if len(array) == 0:
+        return acc
+
+    elif len(acc) == 0:
+        acc = array.pop(0)
+        return superstring(array, acc)
+
+    else:
+
+        for i in range(len(array)):
+            a = array[i]
+            l = len(a)
+
+            for p in range(l / 2):
+                q = l - p
+
+                if acc.startswith(a[p:]):
+                    array.pop(i)
+                    return superstring(array, a[:p] + acc)
+
+                if acc.endswith(a[:q]):
+                    array.pop(i)
+                    return superstring(array, acc + a[q:])
+
+
+if __name__ == "__main__":
+
+    dataset = open('rosalind_long_1_dataset.txt').read().strip()
+    lines=dataset.split()
+    tmp=''
+    listt=[]
+    
+    for line in lines:
+       if line[0]!='>':
+           tmp+=line.strip()
+       else:
+           #print tmp
+           if tmp!="":
+               listt.append(tmp)
+               tmp=""
+    listt.append(tmp)
+    #print superstring(listt)
+    o=open('rosalind_long_1_ouput.txt','w')
+    o.write(superstring(listt))
+    o.close()

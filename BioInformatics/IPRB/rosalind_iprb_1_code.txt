@@ -1,0 +1,7 @@
+a=map(lambda x:int(x),raw_input().split())
+
+p=a[2]*(a[2]-1)+ a[2]*a[1] + a[1]*(a[1]-1)*0.25
+p=p/((a[0]+a[1]+a[2])*(a[0]+a[1]+a[2]-1))
+p=1-p
+
+print p

@@ -1,0 +1,55 @@
+import urllib2  # the lib that handles the url stuff
+
+f=open("rosalind_mprt_1_dataset.txt","r")
+nm=f.read().split('\n')
+for j in range(len(nm)):
+        if nm[j]=="":
+            del nm[j]
+
+d={}
+lst=[]
+for link in nm:
+    
+    l=[]
+    tag="http://www.uniprot.org/uniprot/"+link+".fasta"
+    data = urllib2.urlopen(tag) # it's a file like object and works just like a file
+
+    for line in data: # files are iterable
+        l.append(line[:-1])
+
+#print l
+
+
+    for j in range(len(l)):
+        if l[j]=="":
+            del l[j]
+
+    
+    i=-1
+   
+
+
+    for ele in l:
+        if ele[0]=='>':
+            i=i+1
+            ky=ele[1:].split('|')
+            key=link
+            lst.append("")
+            d[link]=""
+        else:
+            lst[-1]=lst[-1]+ele;
+            d[key]=d[key]+ele;
+
+ans=[]
+#print d
+
+for key in d:
+    ans=""
+    for i in range(len(d[key])):
+        
+        wrd=d[key][i:i+4]
+        if wrd[0]=='N' and wrd[1]!='P' and wrd[3]!='P' and (wrd[2]=='S' or wrd[2]=='T'):
+                                                            ans=ans+str(i+1)+" "
+    if(ans):
+                                                            print key
+                                                            print ans

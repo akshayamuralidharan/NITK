@@ -1,0 +1,20 @@
+f=open("rosalind_gc_1_dataset.txt","r")
+
+l=f.read().split('\n')
+i=0
+d={}
+
+while l[i]:
+    if l[i][0]=='>':
+        t=l[i][1:]
+        i=i+1
+        tmp=""
+        while l[i] and l[i][0]!='>' :
+            tmp=tmp+l[i]
+            i=i+1
+        gc= float(tmp.count("G")+tmp.count("C"))*100/len(tmp)
+        d[t]=gc
+
+k=max(d,key=d.get)
+print k
+print d[k]

@@ -1,0 +1,57 @@
+f=open("rosalind_cat_1_dataset.txt","r+")
+l=f.read().split('\n')
+
+d={'':1,'AU':1,'GC':1,'CG':1,'UA':1}
+bp={'A':'U','C':'G','G':'C','U':'A'}
+st=""
+
+for cnt in range(1,len(l)):
+    st=st+l[cnt]
+
+l=st
+
+def ctn(a):
+    
+    if a in d:
+        return d[a]
+
+    else:
+        i=1
+        ct=0
+        
+        while i<len(a):
+
+            if bp[a[0]]==a[i]:
+
+                if i>1:
+                    s1=a[1:i]
+                else:
+                    s1=""
+
+                if i<len(a)-1:
+                    s2=a[i+1:]
+                else:
+                    s2=""
+                    
+                #print s1,s2
+                    
+                if s1 not in d:
+                    d[s1]=ctn(s1)
+                
+                if s2 not in d:
+                    d[s2]=ctn(s2)
+
+                    
+                #print s1,s2,ct,d[s1],d[s2]
+
+                
+
+                ct=ct+d[s1]*d[s2]
+
+            i=i+2
+
+    return ct
+
+
+#st="UAGCGUGAUCAC"
+print ctn(l)%1000000

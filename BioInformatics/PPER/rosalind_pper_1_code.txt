@@ -1,0 +1,12 @@
+from math import factorial
+
+def partial_permutation(n,k):
+    return factorial(n)/factorial(n-k) % 1000000
+
+f=open('rosalind_pper_1_dataset.txt','r')
+n,k=f.read().split()
+o=open('rosalind_pper_1_output.txt','w')
+print partial_permutation(int(n),int(k))
+o.write(str(partial_permutation(int(n),int(k))))
+o.close()
+f.close()

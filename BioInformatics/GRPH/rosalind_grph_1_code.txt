@@ -1,0 +1,36 @@
+f=open("rosalind_grph_1_dataset.txt","r+")
+
+l=f.read().split('\n')
+
+i=-1
+lst=[]
+
+for j in range(len(l)):
+    if l[j]=="":
+        del l[j]
+
+d={}
+
+for ele in l:
+    if ele[0]=='>':
+        i=i+1
+        key=ele[1:]
+        lst.append("")
+        d[key]=""
+    else:
+        lst[-1]=lst[-1]+ele;
+        d[key]=d[key]+ele;
+
+ans=[]
+
+for key in d:
+    for key2 in d:
+ #       print d[key][-3:],d[key2][0:3]
+        if key!=key2 and d[key][-3:]==d[key2][0:3]:
+            ans.append([key,key2])
+
+
+#print ans
+
+for ele in ans:
+    print ele[0],ele[1]

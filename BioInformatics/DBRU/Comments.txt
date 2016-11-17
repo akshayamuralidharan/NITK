@@ -1,0 +1,5 @@
+Name: Akshaya Muralidharan
+Regisration Number: 11CO10
+Rosalind ID: akshaya
+
+Complexity: O(n*l)               ;l-> length of string, n->number of DNA strings

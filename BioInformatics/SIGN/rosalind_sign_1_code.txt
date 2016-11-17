@@ -1,0 +1,26 @@
+import itertools
+import math
+
+n=int(raw_input())
+
+l=range(1,n+1)
+
+
+print pow(2,n)*math.factorial(n)
+for i in range(n+1):
+	sb=list(itertools.combinations(l, i))
+		
+	for j in sb:
+		ls=range(1,n+1)
+		#print j
+		for k in j:
+			#print k
+			ls[k-1]=ls[k-1]*-1
+		
+		
+		ls=list(itertools.permutations(ls))
+		for ele in ls:
+			s=""
+			for num in ele:
+				s=s+str(num)+" "
+			print s
